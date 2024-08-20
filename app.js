@@ -15,7 +15,8 @@ let results = document.getElementById('results');
 fetch('http://mycloudmms.com:81/api/EmailUser/',{
     headers:{
         'Authorization': `Basic ${auth}`
-    }
+    },
+    referrerPolicy: "unsafe-url"
 }).then(function(response){
     return response.json();
 }).then(function(data){
