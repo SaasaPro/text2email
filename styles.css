@@ -76,7 +76,28 @@ th{
     color: #212121;
     text-align: left;
     
+    cursor: pointer;
+    position: relative;
+    padding-right: 20px; /* espacio para la flecha */
+    
 }
+
+  th.asc::after {
+    content: "▲"; /* flecha hacia arriba */
+    position: absolute;
+    right: 5px;
+    color: #333;
+    font-size: 0.8em;
+  }
+
+  th.desc::after {
+    content: "▼"; /* flecha hacia abajo */
+    position: absolute;
+    right: 5px;
+    color: #333;
+    font-size: 0.8em;
+  }
+
 
 .text{
     font-weight: bold;
