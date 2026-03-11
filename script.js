@@ -34,10 +34,18 @@ try {
     result = { rawResponse: raw };
   }
 
-  document.getElementById("result").innerText = "Respuesta: " + JSON.stringify(result);
+  // ✅ Mostrar mensaje claro
+  document.getElementById("result").innerText = "Número añadido correctamente";
+
+  // ✅ Refrescar la página después de 2 segundos
+  setTimeout(() => {
+    window.location.reload();
+  }, 2000);
+
 } catch (error) {
   document.getElementById("result").innerText = "Error al añadir: " + error;
 }
+
 
 
 });
