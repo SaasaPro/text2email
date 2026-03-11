@@ -2,7 +2,22 @@ document.addEventListener('DOMContentLoaded', () =>{
     // listData();
     searchData();
 });    
+// Manejo de tabs
+document.querySelectorAll(".tab-button").forEach(button => {
+  button.addEventListener("click", () => {
+    const tab = button.getAttribute("data-tab");
 
+    // Quitar active de todos los botones
+    document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    // Ocultar todos los contenidos
+    document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
+
+    // Mostrar el tab seleccionado
+    document.getElementById(tab).classList.add("active");
+  });
+});
 let username = 'P002:APBXP002';
 let password = 'km8vNktCwERc';
 let auth = btoa(`${username}:${password}`);
