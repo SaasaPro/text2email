@@ -35,7 +35,7 @@ try {
   }
 
   // ✅ Mostrar mensaje claro
-  document.getElementById("result").innerText = "Número añadido correctamente";
+  document.getElementById("result").innerText = "Number added successfully!";
 
   // ✅ Refrescar la página después de 2 segundos
   setTimeout(() => {
@@ -43,7 +43,7 @@ try {
   }, 2000);
 
 } catch (error) {
-  document.getElementById("result").innerText = "Error al añadir: " + error;
+  document.getElementById("result").innerText = "Oops, Falco broken my code: " + error;
 }
 
 
