@@ -51,18 +51,32 @@ table {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+#searchForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search{
+    width: 500px;
+    padding: 8px;
+    font-size: 16px;
+}
+
 #tableContainer th, #tableContainer td {
     border: 1px solid #ccc;
     padding: 8px;
     text-align: left;
   }
   
+  /* Cabecera fija */
   #tableContainer thead th {
     position: sticky;
     top: 0;              /* se pega arriba */
     /*background: #f9f9f9; /* color de fondo para que no se mezcle con las filas */
     z-index: 2;          /* asegura que quede encima */
   }
+  
 
 #table-wrapper {
     position: relative;
@@ -75,23 +89,36 @@ table {
     overflow-y: auto;
     margin-top: 20px;
 }
-
+#tableContainer thead th {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    /*background: #f9f9f9;   /* color de fondo */
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* sombra flotante */
+  }
+  
 #results{
     margin-top: 20px;
 }
 
+thead{
+    border: 2px solid grey;
+}
 th{
     position: sticky;
     top: 0;
     background-color: #2c9fac;
     color: #212121;
     text-align: left;
-    
+
     cursor: pointer;
     position: relative;
     padding-right: 20px; /* espacio para la flecha */
     
 }
+
+
 
   th.asc::after {
     content: "▲"; /* flecha hacia arriba */
@@ -131,4 +158,75 @@ h3{
     text-align: center;
 }
 
+/* Tabs */
+.tabs {
+  display: flex;
+  margin: 20px;
+}
 
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  background: #eee;
+  border: none;
+  font-weight: bold;
+}
+
+.tab-button.active {
+  background: #0078d7;
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Formulario Añadir Número */
+#phoneForm {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* columna fija para labels, flexible para inputs */
+  gap: 15px 10px;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto; /* centra el formulario */
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+#phoneForm label {
+  font-weight: bold;
+  text-align: right;
+}
+
+#phoneForm input,
+#phoneForm select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#phoneForm button {
+  grid-column: 1 / span 2; /* ocupa todo el ancho */
+  justify-self: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #0078d7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#phoneForm button:hover {
+  background: #005fa3;
+}
