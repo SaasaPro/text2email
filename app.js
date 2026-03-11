@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () =>{
+  document.addEventListener('DOMContentLoaded', () =>{
     // listData();
     searchData();
 });    
@@ -18,6 +18,7 @@ document.querySelectorAll(".tab-button").forEach(button => {
     document.getElementById(tab).classList.add("active");
   });
 });
+
 let username = 'P002:APBXP002';
 let password = 'km8vNktCwERc';
 let auth = btoa(`${username}:${password}`);
@@ -51,7 +52,24 @@ fetch('http://mycloudmms.com:81/api/EmailUser/',{
 });
 
   function listData(datos){
+
     
+   
+    /* 
+    tableScroll.innerHTML = '<table id="tableContainer"><thead><tr><th><span class="text">Cluster</span></th><th><span class="text">Phone</span></th><th><span class="text">Email</span></th></tr></thead></table>';
+    const tableContainer = document.getElementById('tableContainer');
+   datos.forEach(item => {
+       const elements = document.createElement('tr');
+       elements.innerHTML = `<td>${item.providerName}</td><td>${item.phoneNumber}</td><td>${item.emailAddress}</td>`;
+       tableContainer.appendChild(elements);
+   });
+   results.innerHTML = 'Total results: ' + datos.length;
+*/
+   // Generar tabla con cabeceras
+// Generar tabla con cabeceras
+// Generar tabla con cabeceras
+
+// Render de la tabla
 tableScroll.innerHTML = `
   <table id="tableContainer">
     <thead>
@@ -68,7 +86,7 @@ tableScroll.innerHTML = `
 const tableContainer = document.getElementById('tableContainer');
 const tbody = tableContainer.querySelector('tbody');
 
-// Fetch table
+// Poblar filas
 datos.forEach(item => {
   const tr = document.createElement('tr');
   tr.innerHTML = `
@@ -81,6 +99,7 @@ datos.forEach(item => {
 
 results.innerHTML = 'Total results: ' + datos.length;
 
+// --- Estado de orden global ---
 let currentSort = { index: -1, asc: true };
 
 const ths = tableContainer.querySelectorAll('th');
@@ -90,7 +109,7 @@ ths.forEach((th, index) => {
     const type = th.dataset.type || 'string';
     const rows = Array.from(tbody.querySelectorAll('tr'));
 
-   // Update order based on new click
+    // Determinar dirección: si es la misma columna, alterna; si es otra, empieza ascendente
     if (currentSort.index === index) {
       currentSort.asc = !currentSort.asc;
     } else {
@@ -98,6 +117,7 @@ ths.forEach((th, index) => {
       currentSort.asc = true;
     }
 
+    // Actualizar flechas: limpiar otras columnas, aplicar solo a la actual
     ths.forEach((h, i) => {
       h.classList.remove('asc', 'desc');
       if (i === currentSort.index) {
@@ -105,7 +125,7 @@ ths.forEach((th, index) => {
       }
     });
 
-    
+    // Comparador robusto
     const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 
     rows.sort((a, b) => {
@@ -130,8 +150,8 @@ ths.forEach((th, index) => {
   });
 });
 
-// Load file with asc order in first column
-ths[0].click();   
+// --- ORDENAR AUTOMÁTICAMENTE POR LA PRIMERA COLUMNA ---
+ths[0].click();   // Simula un clic en el primer encabezado
 
 
 
