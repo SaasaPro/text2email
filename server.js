@@ -1,9 +1,14 @@
 import express from "express";
 import fetch from "node-fetch";
+import cors from "cors";
 
 const app = express();
+
+// Permitir CORS desde cualquier origen (para pruebas)
+app.use(cors());
 app.use(express.json());
 
+// Proxy POST
 app.post("/proxy", async (req, res) => {
   const data = req.body;
 
@@ -28,6 +33,7 @@ app.post("/proxy", async (req, res) => {
   }
 });
 
+// Proxy GET
 app.get("/listProxy", async (req, res) => {
   const search = req.query.search || "";
   const username = "P002:APBXP002";
