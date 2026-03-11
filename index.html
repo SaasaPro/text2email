@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text2Email lookup tool</title>
-    <link rel="stylesheet" href="./styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text2Email lookup tool</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="search-container">
-        <img src="https://nms1-la.mynlv.com/ns-api/?object=image&action=read&filename=portal_main_top_left.png&server=nms1-la.mynlv.com&territory=NextLevel&domain=2000ponceowner.myvrv.com" alt="">
-        <h1>Text2Email lookup tool</h1>
-       
-        <form id="searchForm">
-            <input name="search" id="search" type="search" placeholder="Search by number or email address"></input>
-        </form>
+  <div class="search-container">
+    <img src="https://nms1-la.mynlv.com/ns-api/?object=image&action=read&filename=portal_main_top_left.png&server=nms1-la.mynlv.com&territory=NextLevel&domain=2000ponceowner.myvrv.com" alt="">
+    <h1>Text2Email lookup tool</h1>
+  </div>
 
-    </div>       
-        <div id="table-wrapper">
-            <div id="table-scroll">
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-button active" data-tab="listado">Numbers List</button>
+    <button class="tab-button" data-tab="añadir">Add New Number</button>
+  </div>
 
-            </div>
+  <!-- Contenido de cada tab -->
+  <div id="listado" class="tab-content active">
+    <form id="searchForm">
+      <input name="search" id="search" type="search" placeholder="Search by number or email address">
+    </form>
 
-        </div>
-        <div id="results">
+    <div id="table-wrapper">
+      <div id="table-scroll"></div>
+    </div>
+    <div id="results"></div>
+  </div>
 
-        </div>
+  <div id="añadir" class="tab-content">
+    <form id="phoneForm">
+      <label for="providerCode">Cluster:</label>
+      <select id="providerCode" name="providerCode" required>
+        <option value="P001">OITC</option>
+        <option value="P002">APBX</option>
+        <option value="P003">Nexogy</option>
+        <option value="P004">MYVRV/NLI</option>
+      </select>
 
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Ex: 8133550115" required>
 
-    <!-- <script src="./db.js"></script> -->
-    <script src="app.js"></script>
+      <label for="deliveryEmailAddress">Email Address:</label>
+      <input type="email" id="deliveryEmailAddress" name="deliveryEmailAddress" placeholder="sample@mail.com" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
