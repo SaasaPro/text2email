@@ -62,20 +62,23 @@ app.post("/proxy", async (req, res) => {
   }
 });
 
-// --- GET listado ---
-app.get("/listProxy", async (req, res) => {
-  const search = req.query.search || "";
-
+// --- GET EmailUser ---
+app.get("/proxy/email-users", async (req, res) => {
   try {
-    const response = await fetch("http://mycloudmms.com:81/api/PhoneNumber?search=" + encodeURIComponent(search), {
-      headers: { "Authorization": "Basic " + credentials }
+    const response = await fetch("http://mycloudmms.com:81/api/EmailUser", {
+      headers: {
+        "Authorization": "Basic " + credentials
+      }
     });
 
-    const text = await response.text();
-    res.status(response.status).send(text);
+    if (!response.ok) {
+      return res.status(response.status).json({ error: "Error en API externa" });
+    }
+
+    const data = await response.json();
+    res.json(data);
   } catch (err) {
     res.status(500).json({ error: err.toString() });
   }
 });
-
 app.listen(3000, () => console.log("Proxy corriendo en puerto 3000"));
