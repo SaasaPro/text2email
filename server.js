@@ -27,7 +27,14 @@ app.post("/proxy", async (req, res) => {
 
     const phoneText = await phoneResponse.text();
 
-    // 2. Crear EmailUser con los mismos datos
+    if (!phoneResponse.ok) {
+      return res.status(phoneResponse.status).json({
+        error: "Error creando PhoneNumber",
+        details: phoneText
+      });
+    }
+
+    // 2. Crear EmailUser
     const emailData = {
       providerCode: data.providerCode,
       phoneNumber: data.phoneNumber,
@@ -51,7 +58,14 @@ app.post("/proxy", async (req, res) => {
 
     const emailText = await emailResponse.text();
 
-    // 3. Devolver ambas respuestas al frontend
+    if (!emailResponse.ok) {
+      return res.status(emailResponse.status).json({
+        error: "Error creando EmailUser",
+        details: emailText
+      });
+    }
+
+    // 3. Solo si ambos fueron OK
     res.status(200).json({
       phoneNumberResponse: phoneText,
       emailUserResponse: emailText
@@ -61,6 +75,7 @@ app.post("/proxy", async (req, res) => {
     res.status(500).json({ error: err.toString() });
   }
 });
+
 
 // --- GET EmailUser ---
 app.get("/proxy/email-users", async (req, res) => {
