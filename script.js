@@ -33,19 +33,20 @@ try {
   } catch {
     result = { rawResponse: raw };
   }
+  if (!response.ok) {
+    throw new Error(result.error || raw || "Error en la API");
+  }
 
-  // ✅ Mostrar mensaje claro
   document.getElementById("result").innerText = "Number added successfully!";
 
-  // ✅ Refrescar la página después de 2 segundos
   setTimeout(() => {
     window.location.reload();
   }, 2000);
 
 } catch (error) {
-  document.getElementById("result").innerText = "Oops, Falco broken my code: " + error;
+  console.error("Add number failed:", error);
+  document.getElementById("result").innerText =
+    "Oops, Falco broken the code: " + error.message;
 }
-
-
 
 });
