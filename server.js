@@ -96,4 +96,29 @@ app.get("/proxy/email-users", async (req, res) => {
     res.status(500).json({ error: err.toString() });
   }
 });
+
+// --- DELETE PhoneNumber ---
+app.delete("/proxy/phone-number/:number", async (req, res) => {
+  const { number } = req.params;
+
+  try {
+    const response = await fetch(`http://mycloudmms.com:81/api/PhoneNumber/${number}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": "Basic " + credentials
+      }
+    });
+
+    const text = await response.text();
+
+    if (!response.ok) {
+      return res.status(response.status).json({ error: "Error eliminando número", details: text });
+    }
+
+    res.status(200).json({ message: `Número ${number} eliminado correctamente`, details: text });
+  } catch (err) {
+    res.status(500).json({ error: err.toString() });
+  }
+});
+
 app.listen(3000, () => console.log("Proxy corriendo en puerto 3000"));
