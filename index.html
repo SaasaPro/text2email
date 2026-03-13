@@ -9,7 +9,7 @@
 <body>
   <div class="search-container">
     <img src="https://nms1-la.mynlv.com/ns-api/?object=image&action=read&filename=portal_main_top_left.png&server=nms1-la.mynlv.com&territory=NextLevel&domain=2000ponceowner.myvrv.com" alt="">
-    <h1>Text2Email Tool</h1>
+    <h1>Text2Email lookup tool</h1>
   </div>
 
   <!-- Tabs -->
@@ -20,14 +20,15 @@
 
   <!-- Contenido de cada tab -->
   <div id="listado" class="tab-content active">
-  <button id="exportCsvBtn" class="export-btn" title="Exportar CSV">
+<button id="exportCsvBtn" class="export-btn" title="CSV Export" disabled>
   <svg xmlns="http://www.w3.org/2000/svg" 
        width="22" height="22" 
        viewBox="0 0 24 24" fill="white">
-  <path d="M3 3h14l4 4v14H3V3zm12 2H7v4h8V5zm2 14v-6H7v6h10z"/>
+    <path d="M3 3h14l4 4v14H3V3zm12 2H7v4h8V5zm2 14v-6H7v6h10z"/>
   </svg>
   <span>Export</span>
 </button>
+
     <form id="searchForm">
       <input name="search" id="search" type="search" placeholder="Search by number or email address">
     </form>
@@ -54,9 +55,12 @@
       <label for="deliveryEmailAddress">Email Address:</label>
       <input type="email" id="deliveryEmailAddress" name="deliveryEmailAddress" placeholder="sample@mail.com" required>
 
-      <button type="submit">Add</button>
+      <button type="submit">Enviar</button>
+      
     </form>
-
+    <!-- <div class="image-container">
+        <img src="https://qos-orldc.myvrv.com/images/falco.png" class="falco" alt="Our lord">
+    </div> -->
     <div id="result"></div>
   </div>
 
