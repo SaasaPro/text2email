@@ -81,6 +81,11 @@ function listData(datos) {
 
   results.innerHTML = "Total results: " + datos.length;
 
+  const exportBtn = document.getElementById("exportCsvBtn");
+  if(exportBtn) {
+    exportBtn.disabled = datos.length === 0;
+  }
+
   // --- Manejo de clicks en botones eliminar ---
   tbody.addEventListener("click", async (e) => {
     if (e.target.closest(".delete-btn")) {
@@ -180,6 +185,9 @@ function searchData() {
     if (showFilter.length === 0) {
       tableScroll.innerHTML = "<h3>No results found</h3>";
       results.innerHTML = "";
+
+      const exportBtn = document.getElementById("exportCsvBtn");
+      if(exportBtn) exportBtn.disabled = true;
     } else {
       listData(showFilter);
     }
