@@ -29,8 +29,10 @@ const tableScroll = document.getElementById("table-scroll");
 const search = document.getElementById("search");
 const results = document.getElementById("results");
 
-// --- GET listado desde backend ---
 function loadEmailUsers() {
+  const loader = document.getElementById("loader");
+  loader.style.display = "block"; 
+
   fetch("https://text2email.onrender.com/proxy/email-users")
     .then(response => response.json())
     .then(data => {
@@ -39,7 +41,11 @@ function loadEmailUsers() {
       listData(datos);
     })
     .catch(err => {
-      console.error("Error cargando usuarios:", err);
+      console.error("Load users failed:", err);
+      tableScroll.innerHTML = "<h3>Error loading data</h3>";
+    })
+    .finally(() => {
+      loader.style.display = "none"; 
     });
 }
 
