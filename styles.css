@@ -90,7 +90,28 @@ table {
     padding: 8px;
     font-size: 16px;
 }
+#loader {
+  display: none;       /* oculto por defecto */
+  width: 100%;         /* ocupa el ancho del bloque padre (#listado) */
+  text-align: center;  /* centra el contenido interno */
+  margin: 20px 0;      /* espacio arriba y abajo */
+}
 
+.loading-bar {
+  width: 50%;          /* ancho relativo, puedes poner 300px si prefieres fijo */
+  max-width: 400px;    /* límite máximo */
+  height: 20px;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  animation: loading 1s infinite;
+  border-radius: 4px;
+  margin: 0 auto;      /* esto centra la barra dentro del contenedor */
+}
+
+@keyframes loading {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
 #tableContainer th, #tableContainer td {
     border: 1px solid #ccc;
     padding: 8px;
