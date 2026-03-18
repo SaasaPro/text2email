@@ -43,7 +43,7 @@ input{
   display: inline-flex;
   align-items: center;
   gap: 8px;                /* espacio entre ícono y texto */
-  background-color: #2d89ef; /* azul estilo guardar */
+  background-color: #2d89ef; /* azul  */
   color: white;
   border: none;
   border-radius: 6px;
@@ -91,20 +91,20 @@ table {
 }
 
 #loader {
-  display: none;       /* oculto por defecto */
-  width: 100%;         /* ocupa el ancho del bloque padre (#listado) */
-  text-align: center;  /* centra el contenido interno */
-  margin: 20px 0;      /* espacio arriba y abajo */
+  display: none;       
+  width: 100%;         
+  text-align: center;  
+  margin: 20px 0;      
 }
 
 .loading-bar {
-  width: 50%;          /* ancho relativo, puedes poner 300px si prefieres fijo */
-  max-width: 400px;    /* límite máximo */
+  width: 50%;          
+  max-width: 400px;    
   height: 20px;
   background: linear-gradient(90deg, #4caf50, #81c784);
   animation: loading 1s infinite;
   border-radius: 4px;
-  margin: 0 auto;      /* esto centra la barra dentro del contenedor */
+  margin: 0 auto;      
 }
 
 @keyframes loading {
@@ -120,12 +120,11 @@ table {
     text-align: left;
   }
   
-  /* Cabecera fija */
   #tableContainer thead th {
     position: sticky;
-    top: 0;              /* se pega arriba */
-    /*background: #f9f9f9; /* color de fondo para que no se mezcle con las filas */
-    z-index: 2;          /* asegura que quede encima */
+    top: 0;              
+    /*background: #f9f9f9;  */
+    z-index: 2;          
   }
   
 
@@ -144,9 +143,9 @@ table {
     position: sticky;
     top: 0;
     height: 50px;
-    /*background: #f9f9f9;   /* color de fondo */
+    /*background: #f9f9f9;   
     z-index: 2;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* sombra flotante */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
   }
   
 #results{
@@ -210,14 +209,14 @@ th{
 
     cursor: pointer;
     position: relative;
-    padding-right: 20px; /* espacio para la flecha */
+    padding-right: 20px; 
     
 }
 
 
 
   th.asc::after {
-    content: "▲"; /* flecha hacia arriba */
+    content: "▲"; 
     position: absolute;
     right: 5px;
     color: #333;
@@ -225,7 +224,7 @@ th{
   }
 
   th.desc::after {
-    content: "▼"; /* flecha hacia abajo */
+    content: "▼";
     position: absolute;
     right: 5px;
     color: #333;
@@ -286,11 +285,11 @@ h3{
 /* Formulario Añadir Número */
 #phoneForm {
   display: grid;
-  grid-template-columns: 150px 1fr; /* columna fija para labels, flexible para inputs */
+  grid-template-columns: 150px 1fr; 
   gap: 15px 10px;
   align-items: center;
   max-width: 600px;
-  margin: 0 auto; /* centra el formulario */
+  margin: 0 auto;
   padding: 20px;
   background: #f9f9f9;
   border-radius: 8px;
@@ -312,7 +311,7 @@ h3{
 }
 
 #phoneForm button {
-  grid-column: 1 / span 2; /* ocupa todo el ancho */
+  grid-column: 1 / span 2; 
   justify-self: center;
   padding: 10px 20px;
   font-size: 16px;
@@ -332,5 +331,5 @@ h3{
 }
 
 .image-container img {
-  max-width: 500px; /* opcional, para controlar tamaño */
+  max-width: 500px; 
 }
